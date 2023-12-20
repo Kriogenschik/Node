@@ -1,11 +1,19 @@
 const http = require("http");
-const {getHTML, getText, getComments, handleNotFound, postComments} = require('./handlers');
+const {
+  getHTML,
+  getText,
+  getComments,
+  handleNotFound,
+  postComments,
+  getHome,
+} = require("./handlers");
 
 const PORT = 5000;
 
-
-
 const server = http.createServer((req, res) => {
+  if (req.method === "GET" && req.url === "/") {
+    return getHome(req, res);
+  }
   if (req.method === "GET" && req.url === "/html") {
     return getHTML(req, res);
   }

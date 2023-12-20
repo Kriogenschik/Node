@@ -1,0 +1,3 @@
+Hello
+it`s
+Stream write text
